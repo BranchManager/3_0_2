@@ -1,4 +1,4 @@
-//
+// this ia a wierd change
 //  main.cpp
 //  spellseeker
 //
