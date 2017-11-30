@@ -40,6 +40,9 @@ void SpellSeeker::dfs(int r, int c, string &key){
     
     string b;
     int tmp=grid[r][c];
+    if(key[total_c * r +c] != 'X') {
+        key[total_c * r + c] = 'O';
+    }
     if(r != 0){
         
         if(abs(tmp-grid[r-1][c])==1){
@@ -81,11 +84,9 @@ void SpellSeeker::dfs(int r, int c, string &key){
     if(c != total_c -1 and abs(tmp - grid[r][c+1])==1){
         dfs(r,c+1,key);
     }
-    
-    if(key[total_c * r +c] != 'X'){
-        key[total_c * r +c] = 'O';
+
         
-    }
+    
     return;
     //key[total_c * r +c] = 'O';
 }
