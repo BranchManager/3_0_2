@@ -292,14 +292,14 @@ int main(int argc,char **argv) {
     Answer *next = new Answer;
     int max=0;
     map<string, Answer*>::iterator it;
-    string txtf = argv[1];
+    /*string txtf = argv[1];
     ifstream txt;
     txt.open(argv[1]);
     
-   // cout<<argv[1]<<endl;
+   // cout<<argv[1]<<endl;*/
     string num;
     
-    while(getline(txt,num)){
+    while(getline(cin,num)){
         
        // cout<<num<<endl;
         gridinfo -> grid.push_back(num);
