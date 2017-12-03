@@ -43,7 +43,7 @@ void SpellSeeker::dfs(int r, int c, string &key){
     if(key[total_c * r +c] != 'X') {
         key[total_c * r + c] = 'O';
     }
-    cout<<"da key is"<<key<<" at "<<r<<" "<<c<<" is "<<key[total_c * r +c]<<" "<<total_c * r +c<<" at "<<grid[r][c]<<endl;
+    //cout<<"da key is"<<key<<" at "<<r<<" "<<c<<" is "<<key[total_c * r +c]<<" "<<total_c * r +c<<" at "<<grid[r][c]<<endl;
     if(r != 0){
         
         if(abs(tmp-grid[r-1][c])==1){
@@ -122,14 +122,14 @@ Answer* SpellSeeker::Solve(int r, int c){
     
     
     dfs(r,c,key);
-    cout<<"key is"<<key<<endl;
+    
     
     a->key = key;
     it = cache.find(a->key);
     a->key = a->key;
     a->nexta = NULL;
     if(it != cache.end()){
-        cout<<"nigga we returnin"<<endl;
+        //cout<<"nigga we returnin"<<endl;
         return it -> second;
         
     }
@@ -139,19 +139,19 @@ Answer* SpellSeeker::Solve(int r, int c){
     a->r = r;
     a ->c = c;
     
-    cout<<grid.size()<<endl;
+    //cout<<grid.size()<<endl;
     
     if(r != 0){
         
         if(abs(tmp-grid[r-1][c])==1){
             //degub statement
-            cout<<"1 we are subtracting "<<tmp<<" and "<<grid[r-1][c]<<endl;
+            //cout<<"1 we are subtracting "<<tmp<<" and "<<grid[r-1][c]<<endl;
             grid[r][c] = '-';
             b = Solve(r-1,c);
             if(b -> length > max){
                 max = b -> length;
                 a -> nexta = b;
-                cout<<"next is...."<< b -> r<<" "<<b -> c<<endl;
+               // cout<<"next is...."<< b -> r<<" "<<b -> c<<endl;
             }
             grid[r][c]=tmp;
             
@@ -160,27 +160,27 @@ Answer* SpellSeeker::Solve(int r, int c){
         if(c % 2 ==1){
             if(c != total_c-1 and abs(tmp - grid[r-1][c+1])==1){
                 //degub statement
-                cout<<"2 we are subtracting "<<tmp<<" and "<<r-1<<" "<<c+1<<endl;
+               // cout<<"2 we are subtracting "<<tmp<<" and "<<r-1<<" "<<c+1<<endl;
 
                 grid[r][c] = '-';
                 b = Solve(r-1,c+1);
                 if(b -> length > max){
                     max = b -> length;
                     a -> nexta = b;
-                    cout<<"next is...."<< b -> r<<" "<<b -> c<<endl;
+                   // cout<<"next is...."<< b -> r<<" "<<b -> c<<endl;
                     
                 }
                 grid[r][c]=tmp;
             }
             if(abs(tmp - grid[r-1][c-1])==1){
                 //degub statement
-                cout<<"3 we are subtracting "<<tmp<<" and "<<r-1<<" "<<c-1<<endl;
+                //cout<<"3 we are subtracting "<<tmp<<" and "<<r-1<<" "<<c-1<<endl;
                 grid[r][c] = '-';
                 b = Solve(r-1,c-1);
                 if(b -> length > max){
                     max = b -> length;
                     a -> nexta = b;
-                    cout<<"next is...."<< b -> r<<" "<<b -> c<<endl;
+                   // cout<<"next is...."<< b -> r<<" "<<b -> c<<endl;
                     
                 }
                 grid[r][c]=tmp;
@@ -190,16 +190,16 @@ Answer* SpellSeeker::Solve(int r, int c){
     }
     if(r != total_r - 1){
         
-        cout<<abs(tmp - grid[r+1][c])<<endl;
+        //cout<<abs(tmp - grid[r+1][c])<<endl;
         if(abs(tmp - grid[r+1][c])==1){
             //degub statement
-            cout<<"4 we are subtracting "<<tmp<<" and "<<r+1<<" "<<c<<endl;
+           // cout<<"4 we are subtracting "<<tmp<<" and "<<r+1<<" "<<c<<endl;
             grid[r][c] = '-';
             b = Solve(r+1,c);
             if(b -> length > max){
                 max = b -> length;
                 a -> nexta = b;
-                cout<<"next is...."<< b -> r<<" "<<b -> c<<endl;
+              //  cout<<"next is...."<< b -> r<<" "<<b -> c<<endl;
                 
             }
             grid[r][c]=tmp;
@@ -208,13 +208,13 @@ Answer* SpellSeeker::Solve(int r, int c){
         if(c % 2 ==0){
             if( c!= 0 and abs(tmp - grid[r +1][c-1])==1){
                 //degub statement
-                cout<<"5 we are subtracting "<<tmp<<" and "<<r+1<<" "<<c-1<<endl;
+               // cout<<"5 we are subtracting "<<tmp<<" and "<<r+1<<" "<<c-1<<endl;
                 grid[r][c] = '-';
                 b = Solve(r+1,c-1);
                 if(b -> length > max){
                     max = b -> length;
                     a -> nexta = b;
-                    cout<<"next is...."<< b -> r<<" "<<b -> c<<endl;
+                   // cout<<"next is...."<< b -> r<<" "<<b -> c<<endl;
                     
                 }
                 grid[r][c]=tmp;
@@ -222,13 +222,13 @@ Answer* SpellSeeker::Solve(int r, int c){
             }
             if(c != total_c-1 and abs(tmp - grid[r +1][c+1])==1){
                 //degub statement
-                cout<<"6 we are subtracting "<<tmp<<" and "<<r+1<<" "<<c+1<<endl;
+               // cout<<"6 we are subtracting "<<tmp<<" and "<<r+1<<" "<<c+1<<endl;
                 grid[r][c] = '-';
                 b = Solve(r+1,c+1);
                 if(b -> length > max){
                     max = b -> length;
                     a -> nexta = b;
-                    cout<<"next is...."<< b -> r<<" "<<b -> c<<endl;
+                   // cout<<"next is...."<< b -> r<<" "<<b -> c<<endl;
                     
                 }
                 grid[r][c]=tmp;
@@ -240,20 +240,20 @@ Answer* SpellSeeker::Solve(int r, int c){
     
     if( c != 0 and abs(tmp - grid[r][c-1])==1){
         //degub statement
-        cout<<"7 we are subtracting "<<tmp<<" and "<<r<<" "<<c-1<<endl;
+       // cout<<"7 we are subtracting "<<tmp<<" and "<<r<<" "<<c-1<<endl;
         grid[r][c] = '-';
         b = Solve(r,c-1);
         if(b -> length > max){
             max = b -> length;
             a -> nexta = b;
-            cout<<"next is...."<< b -> r<<" "<<b -> c<<endl;
+           // cout<<"next is...."<< b -> r<<" "<<b -> c<<endl;
             
         }
         grid[r][c]=tmp;
     }
     if(c != total_c -1 and abs(tmp - grid[r][c+1])==1){
         //degub statement
-        cout<<"8 we are subtracting "<<tmp<<" and "<<r<<" "<<c+1<<endl;
+       // cout<<"8 we are subtracting "<<tmp<<" and "<<r<<" "<<c+1<<endl;
         grid[r][c] = '-';
         b = Solve(r,c+1);
         if(b -> length > max){
@@ -265,7 +265,7 @@ Answer* SpellSeeker::Solve(int r, int c){
     }
     
     a -> length = max + 1;
-    cout<<"length for "<<grid[r][c]<<" at coordinates "<<r<<" "<<c<<" is "<<a -> length<<endl;
+   // cout<<"length for "<<grid[r][c]<<" at coordinates "<<r<<" "<<c<<" is "<<a -> length<<endl;
     cache.insert(make_pair(a->key,a));
     return a;
         
@@ -296,12 +296,12 @@ int main(int argc,char **argv) {
     ifstream txt;
     txt.open(argv[1]);
     
-    cout<<argv[1]<<endl;
+   // cout<<argv[1]<<endl;
     string num;
-    cout<<"jello"<<endl;
+    
     while(getline(txt,num)){
-        //cout<<"hello"<<endl;
-        cout<<num<<endl;
+        
+       // cout<<num<<endl;
         gridinfo -> grid.push_back(num);
     }
     gridinfo -> total_r = gridinfo->grid.size();
@@ -309,14 +309,14 @@ int main(int argc,char **argv) {
    // if(isalpha(gridinfo -> grid[0][0])){
     for(int i = 0;i < gridinfo -> grid.size();i++ ){
         for(int j = 0; j < gridinfo -> grid[0].size();j++){
-            cout<<"we doin OUR THANG"<<endl;
+           // cout<<"we doin OUR THANG"<<endl;
             gridinfo -> Solve(i,j);
                 //int u = gridinfo -> grid[i][j]-0;
                 //gridinfo -> grid[i][j] = u;
                 //cout<<u<<endl;
         }
     }
-    cout<<"********************************************************";
+    //cout<<"********************************************************";
     string key;
     for(it = gridinfo -> cache.begin();it != gridinfo->cache.end(); it++){
         if(it->second->length > max){
@@ -325,15 +325,23 @@ int main(int argc,char **argv) {
             
         }
     }
-    cout<<key<<endl;
-    cout<<"2222222222222"<<endl;
+    for(int i = 0; i < gridinfo ->grid.size();i++){
+        for(int j = 0; j < gridinfo ->grid[0].size();j++){
+            cout<<gridinfo -> grid[i][j];
+            
+        }
+        cout<<endl;
+    }
+    cout<<"PATH"<<endl;
+   // cout<<key<<endl;
+   // cout<<"2222222222222"<<endl;
     it = gridinfo -> cache.find(key);
-    cout<<it->second->length;
+    //cout<<it->second->length;
     next = it->second;
-    cout<<"we made it!!!"<<endl;
-    while(next -> nexta != NULL){
-        cout<<"now we in"<<endl;
-        cout<<next -> r<<" "<<next->c<<endl;
+    //cout<<"we made it!!!"<<endl;
+    while(next != NULL){
+        //cout<<next -> c % 2<<" now we in "<<endl;
+        cout<<next -> r<<" "<<next->c<<endl;//<<gridinfo->grid[next->r][next ->c]<<endl;
         next = next -> nexta;
     }
   
