@@ -86,7 +86,7 @@ void SpellSeeker::dfs(int r, int c, string &key){
     }
 
         
-    
+
     return;
     //key[total_c * r +c] = 'O';
 }
