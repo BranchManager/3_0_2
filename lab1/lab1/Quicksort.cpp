@@ -6,7 +6,7 @@ using namespace std;
 // void quickselect(...) { write this }
 
 template <typename Tdata>
-void quicksort(...) { 
+void quicksort( vector <person_t>&info,int k0,int k1) {
   // write this 
 }
 
