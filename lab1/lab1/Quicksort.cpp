@@ -1,12 +1,15 @@
 
 // include header files needed
+#include<vector>
+#include<iostream>
+
 using namespace std;
 
 // template <typename Tdata>
 // void quickselect(...) { write this }
 
 template <typename Tdata>
-void quicksort( vector <person_t>&info,int k0,int k1) {
+void quicksort(vector<person_t> &info,int k0,int k1) {
   // write this 
 }
 
@@ -33,7 +36,7 @@ ostream & operator<<(ostream &out, const person_t &r) {
   // write this to write person_t object data
 }
 
-void printlist(...) { similar to arraylist_handout }
+////////////////////////////void printlist(...) { similar to arraylist_handout }
 
 int main(int argc, char *argv[]) {
   // perform command-line check 
@@ -55,5 +58,5 @@ int main(int argc, char *argv[]) {
 
   quicksort(A, k0, k1);
 
-  printlist(A.begin(), A.end());
+  ///printlist(A.begin(), A.end());
 }

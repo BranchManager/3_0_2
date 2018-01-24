@@ -1,14 +1,15 @@
 
-// include header files needed
+#include<vector>
+#include<iostream>
 using namespace std;
 
 // template <typename Tdata>
 // void quickselect(...) { write this }
 
 template <typename Tdata>
-void quicksort( vector <person_t>&info,int k0,int k1) {
+//void quicksort( vector <person_t> &info,int k0,int k1) {
     // write this
-}
+//}
 
 class person_t {
 public:
@@ -24,9 +25,12 @@ private:
     string lastname;
     string phonenum;
 };
+void quicksort( vector <person_t>&info,int k0,int k1) {
+    // write this
+}
 
 istream & operator>>(istream &in, person_t &r) {
-    in >> person_t.firstname>>person_t.lastname>>person_t.phonenum;
+    in >> r.firstname>>r.lastname>>r.phonenum;
     // write this to read person_t object data
 }
 
@@ -59,6 +63,6 @@ int main(int argc, char *argv[]) {
 
     quicksort(A, k0, k1);
 
-    printlist(A.begin(), A.end());
+  ///////////  printlist(A.begin(), A.end());
 }
 
