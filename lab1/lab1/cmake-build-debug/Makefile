@@ -150,33 +150,6 @@ Quicksort.cpp.s:
 	$(MAKE) -f CMakeFiles/lab1.dir/build.make CMakeFiles/lab1.dir/Quicksort.cpp.s
 .PHONY : Quicksort.cpp.s
 
-playaround.o: playaround.cpp.o
-
-.PHONY : playaround.o
-
-# target to build an object file
-playaround.cpp.o:
-	$(MAKE) -f CMakeFiles/lab1.dir/build.make CMakeFiles/lab1.dir/playaround.cpp.o
-.PHONY : playaround.cpp.o
-
-playaround.i: playaround.cpp.i
-
-.PHONY : playaround.i
-
-# target to preprocess a source file
-playaround.cpp.i:
-	$(MAKE) -f CMakeFiles/lab1.dir/build.make CMakeFiles/lab1.dir/playaround.cpp.i
-.PHONY : playaround.cpp.i
-
-playaround.s: playaround.cpp.s
-
-.PHONY : playaround.s
-
-# target to generate assembly for a file
-playaround.cpp.s:
-	$(MAKE) -f CMakeFiles/lab1.dir/build.make CMakeFiles/lab1.dir/playaround.cpp.s
-.PHONY : playaround.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -189,9 +162,6 @@ help:
 	@echo "... Quicksort.o"
 	@echo "... Quicksort.i"
 	@echo "... Quicksort.s"
-	@echo "... playaround.o"
-	@echo "... playaround.i"
-	@echo "... playaround.s"
 .PHONY : help
 
 

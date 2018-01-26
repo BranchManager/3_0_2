@@ -1,5 +1,4 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/lab1.dir/playaround.cpp.o"
   "CMakeFiles/lab1.dir/Quicksort.cpp.o"
   "lab1.pdb"
   "lab1"

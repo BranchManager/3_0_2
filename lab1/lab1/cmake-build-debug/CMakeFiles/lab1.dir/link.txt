@@ -1,1 +1,1 @@
-/usr/bin/c++  -g   CMakeFiles/lab1.dir/playaround.cpp.o CMakeFiles/lab1.dir/Quicksort.cpp.o  -o lab1 
+/usr/bin/c++  -g   CMakeFiles/lab1.dir/Quicksort.cpp.o  -o lab1 

@@ -3,5 +3,3 @@
 
 CMakeFiles/lab1.dir/Quicksort.cpp.o: ../Quicksort.cpp
 
-CMakeFiles/lab1.dir/playaround.cpp.o: ../playaround.cpp
-

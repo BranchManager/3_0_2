@@ -87,21 +87,6 @@
 		<Unit filename="/home/nbranch/Documents/cosc302/3_0_2/lab1/lab1/Quicksort.cpp">
 			<Option target="lab1"/>
 		</Unit>
-		<Unit filename="/home/nbranch/Documents/cosc302/3_0_2/lab1/lab1/list1.txt">
-			<Option target="lab1"/>
-		</Unit>
-		<Unit filename="/home/nbranch/Documents/cosc302/3_0_2/lab1/lab1/list2.txt">
-			<Option target="lab1"/>
-		</Unit>
-		<Unit filename="/home/nbranch/Documents/cosc302/3_0_2/lab1/lab1/list3.txt">
-			<Option target="lab1"/>
-		</Unit>
-		<Unit filename="/home/nbranch/Documents/cosc302/3_0_2/lab1/lab1/makefile">
-			<Option target="lab1"/>
-		</Unit>
-		<Unit filename="/home/nbranch/Documents/cosc302/3_0_2/lab1/lab1/playaround.cpp">
-			<Option target="lab1"/>
-		</Unit>
 		<Unit filename="/home/nbranch/Documents/cosc302/3_0_2/lab1/lab1/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

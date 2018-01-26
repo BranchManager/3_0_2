@@ -1,3 +1,4 @@
+#include<iomanip>
 #include<vector>
 #include<iostream>
 #include<string>
@@ -36,6 +37,7 @@ istream & operator>>(istream &in, person_t &r) {
 
 ostream & operator<<(ostream &out, const person_t &r) {
     // write this to write person_t object data
+    out << r.lastname<<" "<<r.firstname<<setw(10)<<right<<r.phonenum;
     return out;
 }
 
@@ -43,11 +45,12 @@ ostream & operator<<(ostream &out, const person_t &r) {
 
 int main(int argc, char *argv[]) {
     // perform command-line check
-    
+
     vector <person_t> A;
     
     person_t din;
-    while (cin >> din)
+    //while (cin >> din)
+        cin>>din;
         A.push_back(din);
     
     int N = (int) A.size();

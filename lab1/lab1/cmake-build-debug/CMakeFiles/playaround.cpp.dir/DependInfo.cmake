@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/nbranch/Documents/cosc302/3_0_2/lab1/lab1/Quicksort.cpp" "/home/nbranch/Documents/cosc302/3_0_2/lab1/lab1/cmake-build-debug/CMakeFiles/lab1.dir/Quicksort.cpp.o"
+  "/home/nbranch/Documents/cosc302/3_0_2/lab1/lab1/Quicksort.cpp" "/home/nbranch/Documents/cosc302/3_0_2/lab1/lab1/cmake-build-debug/CMakeFiles/playaround.cpp.dir/Quicksort.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

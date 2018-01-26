@@ -3,10 +3,6 @@ project(lab1)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(lab1
-        list1.txt
-        list2.txt
-        list3.txt
-        makefile
-        playaround.cpp
+add_executable(
+        lab1
         Quicksort.cpp)
