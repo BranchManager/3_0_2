@@ -88,6 +88,7 @@ void quicksort( vector <person_t>&info,int start,int end) {
             dec--;
             //we need to check to mkae sure the pivot index isnt being swapped as well
         }
+        cout<<" inc is "<<inc<<" dec "<<dec<<endl;
     }
     //************swap pivot here with last element crossed***************!!!!!!!!!!!!!!!
     
