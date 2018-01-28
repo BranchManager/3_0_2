@@ -21,6 +21,7 @@ public:
     friend bool operator>=(const person_t&, const person_t&);
     friend bool operator>(const person_t&, const person_t &);
     friend bool operator<(const person_t&, const person_t &);
+    friend bool operator==(const person_t&, const person_t &);
     friend istream & operator>>(istream &, person_t &);
     friend ostream & operator<<(ostream &, const person_t &);
     
@@ -41,7 +42,7 @@ void quicksort( vector <person_t>&info,int start,int end) {
     if(end - start == 1){
         if(info[start+1]<info[start]){
             person_t *temp = new person_t;
-            //int temp = info[start+1];
+            *temp = info[start+1];
             info[start+1]=info[start];
             info[start]=*temp;
             delete temp;
@@ -57,36 +58,45 @@ void quicksort( vector <person_t>&info,int start,int end) {
         start1 = start;
     
     int pivindex = rand()% end+start1;
+    if(pivindex > end){
+        pivindex = end;
+    }
     cout<<"hellend "<<endl;
     cout<<"at "<<pivindex<<" and "<<end<<endl;
     cout<<"pivindex "<<info[pivindex]<<" and end is "<<info[end]<<endl;
+
     swap(info[pivindex],info[end]);
     pivindex = end;
     
     int inc = start;int dec = end-1;
     
-    while(inc <= dec){
-        while(info[inc] < info[pivindex] && inc < end){
-            cout<<"info[inc] "<<info[inc]<< " < "<<info[pivindex]<<endl;
+    while(inc < dec){
+        while((info[inc] < info[pivindex] || info[inc]==info[pivindex]) && inc < end){
+            //cout<<"info[inc] "<<info[inc]<< " < "<<info[pivindex]<<endl;
             inc ++;
         }
-        cout<<" BUT THIS info[inc] "<<info[inc]<< " > "<<info[pivindex]<<endl;
-        while(info[dec] > info[pivindex] && dec > start){
-            cout<<"info[dec] "<<info[dec]<< " > "<<info[pivindex]<<endl;
+        //cout<<" BUT THIS info[inc] "<<info[inc]<< " > "<<info[pivindex]<<endl;
+        while((info[dec] > info[pivindex] || info[dec]==info[pivindex]) && dec > start){
+           // cout<<"info[dec] "<<info[dec]<< " > "<<info[pivindex]<<endl;
             dec--;
         }
-        cout<<"BUT THIS info[dec] "<<info[dec]<< " < "<<info[pivindex]<<endl;
+        //cout<<"BUT THIS info[dec] "<<info[dec]<< " < "<<info[pivindex]<<endl;
         //if the arrows dont cross swap
-        if(info[inc] >= info[dec] && inc <= dec){
+        if(info[inc] > info[dec] && inc <= dec){
+        //if((info[inc] > info[pivindex] || (info[dec]==info[pivindex] && info[inc]==info[pivindex])) && inc <= dec){
             person_t *uemp = new person_t;
-            //int uemp=info[inc];
+            *uemp=info[inc];
             cout<<"info "<<info[inc]<<" swapped w/ "<<info[dec]<<endl;
             info[inc]=info[dec];
             info[dec]=*uemp;
             delete uemp;
             inc++;
+            cout<<"joe"<<endl;
             dec--;
             //we need to check to mkae sure the pivot index isnt being swapped as well
+       /* }else if(info[inc] == info[dec] && inc <= dec){
+            inc++;
+            dec--;*/
         }
         cout<<" inc is "<<inc<<" dec "<<dec<<endl;
     }
@@ -98,9 +108,10 @@ void quicksort( vector <person_t>&info,int start,int end) {
    // printlist(info.begin(),info.end());
     //printem(info);
     ///////////////***********************/////////////////
-    for(int i = 0;i < info.size();i++){
-        cout<<info[i]<<endl;
-    }    quicksort(info, start, pivindex-1);
+   // for(int i = 0;i < info.size();i++){
+     //   cout<<info[i]<<"billy "<<endl;
+    //}
+    quicksort(info, start, pivindex-1);
     ///////////////***********************//////////////////////
     //end-start+1====size;//so start+size-1
     quicksort(info, pivindex+1,start+(end-start));
@@ -114,20 +125,33 @@ void quicksort( vector <person_t>&info,int start,int end) {
 }
 
 
+bool operator==(const person_t&ln, const person_t &ln2){
+    //cout<<"im tryin"<<endl;
+    //if(ln.lastname == ln2.firstname)
+    //    return ln.firstname > ln2.firstname;
+    return ln.lastname == ln2.lastname && ln.firstname == ln2.firstname;
 
+}
 
 bool operator>=(const person_t&ln, const person_t &ln2){
     //cout<<"im tryin"<<endl;
-    return ln.lastname > ln2.lastname;
+    //if(ln.lastname == ln2.firstname)
+    //    return ln.firstname > ln2.firstname;
+    return ln.lastname >= ln2.lastname;
     
 }
 bool operator>(const person_t&ln, const person_t &ln2){
     //cout<<"im tryin"<<endl;
+    if(ln.lastname == ln2.lastname)
+        return ln.firstname > ln2.firstname;
     return ln.lastname > ln2.lastname;
 }
 bool operator<(const person_t&ln, const person_t &ln2){
    // cout<<"im tryin"<<endl;
+    if(ln.lastname == ln2.lastname)
+        return ln.firstname < ln2.firstname;
     return ln.lastname < ln2.lastname;
+
 }
 
 istream & operator>>(istream &in, person_t &r) {
