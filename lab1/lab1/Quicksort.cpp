@@ -34,9 +34,9 @@ void printem(vector<int>&t);
 
 
 void quicksort( vector <person_t>&info,int start,int end) {
-    cout<<"start "<<start<<" end "<<end<<endl;
+    ///cout<<"start "<<start<<" end "<<end<<endl;
     if((end - start) < 1){
-        cout<<"return 1 and "<<end-start<<endl;
+        ///cout<<"return 1 and "<<end-start<<endl;
         return;
     }
     if(end - start == 1){
@@ -50,7 +50,7 @@ void quicksort( vector <person_t>&info,int start,int end) {
         return;
             
     }
-    cout<<" main execution "<<endl;
+    ///cout<<" main execution "<<endl;
     int start1;
     if(start == 0)
         start1=start+1;
@@ -61,9 +61,9 @@ void quicksort( vector <person_t>&info,int start,int end) {
     if(pivindex > end){
         pivindex = end;
     }
-    cout<<"hellend "<<endl;
-    cout<<"at "<<pivindex<<" and "<<end<<endl;
-    cout<<"pivindex "<<info[pivindex]<<" and end is "<<info[end]<<endl;
+    ///cout<<"hellend "<<endl;
+    ///cout<<"at "<<pivindex<<" and "<<end<<endl;
+    ///cout<<"pivindex "<<info[pivindex]<<" and end is "<<info[end]<<endl;
 
     swap(info[pivindex],info[end]);
     pivindex = end;
@@ -86,19 +86,19 @@ void quicksort( vector <person_t>&info,int start,int end) {
         //if((info[inc] > info[pivindex] || (info[dec]==info[pivindex] && info[inc]==info[pivindex])) && inc <= dec){
             person_t *uemp = new person_t;
             *uemp=info[inc];
-            cout<<"info "<<info[inc]<<" swapped w/ "<<info[dec]<<endl;
+            //cout<<"info "<<info[inc]<<" swapped w/ "<<info[dec]<<endl;
             info[inc]=info[dec];
             info[dec]=*uemp;
             delete uemp;
             inc++;
-            cout<<"joe"<<endl;
+           // cout<<"joe"<<endl;
             dec--;
             //we need to check to mkae sure the pivot index isnt being swapped as well
        /* }else if(info[inc] == info[dec] && inc <= dec){
             inc++;
             dec--;*/
         }
-        cout<<" inc is "<<inc<<" dec "<<dec<<endl;
+        ///cout<<" inc is "<<inc<<" dec "<<dec<<endl;
     }
     //************swap pivot here with last element crossed***************!!!!!!!!!!!!!!!
     
@@ -199,7 +199,7 @@ int main(int argc, char *argv[]) {
         //cin>>din;
         A.push_back(din);
     }
-    printlist(A.begin(), A.end());
+   /// printlist(A.begin(), A.end());
     //cin>>din;
         //A.push_back(din);
     int N = (int) A.size();
@@ -213,10 +213,10 @@ int main(int argc, char *argv[]) {
     // if given as command-line arguments,
     // update k0, k1 and apply quickselect
     // to partition A accordingly
-    cout<<"k0  "<<k0<<" k1 "<<k1<<endl;
+    ///cout<<"k0  "<<k0<<" k1 "<<k1<<endl;
     
     quicksort(A, k0, k1);
-    cout<<"hello";
+   /// cout<<"hello";
     printlist(A.begin(), A.end());
 }
 
