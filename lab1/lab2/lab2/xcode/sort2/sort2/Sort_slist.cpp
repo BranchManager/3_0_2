@@ -1,3 +1,5 @@
+//Noah Branch
+//This lab basically sorts names using and array of smart pointers
 // include header files needed
 #include<iostream>
 #include<iomanip>
@@ -25,48 +27,57 @@ private:
 // template <typename T>
 template <class T>
 class slist {
-private:
-    struct node {
-        node() { data = T(); next = NULL; }
-        // add node(const T &key) { write this }
-        node(const T &key){data = key; next = this;}
-        // add overloaded operator< code
-        
-        T data;
-        node *next;
-    };
-    
-    // add class sptr { write this for node data }
-    
-public:
-class iterator {
-    public:
-        iterator() { p = NULL; }
-        T & operator*() { return p->data; }
-        iterator & operator++() { p = p->next; return *this; }
-        bool operator!=(const iterator & rhs) const { return p != rhs.p; }
-        
-        friend class slist<T>;
-        
     private:
-        iterator(node *n_p) { p = n_p; }
-        node *p;
+        struct node {
+            node() { data = T(); next = NULL; }
+            // add node(const T &key) { write this }
+            node(const T &key){data = key; next = NULL;}
+            // add overloaded operator< code
+            friend bool operator<(const node&l, const node&r){return (l.data < r.data);}
+            
+            T data;
+            node *next;
+        };
+    
+        // add class sptr { write this for node data }
+    class sptr {
+        public:
+            sptr(node *_ptr=NULL) { ptr = _ptr; }
+            bool operator< (const sptr &rhs) const { return *ptr < *rhs.ptr;}
+            operator node * () const { return ptr; }
+        private:
+            node *ptr;
+            
     };
+    public:
+    class iterator {
+        public:
+            iterator() { p = NULL; }
+            T & operator*() { return p->data; }
+            iterator & operator++() { p = p->next; return *this; }
+            bool operator!=(const iterator & rhs) const { return p != rhs.p; }
+        
+            friend class slist<T>;
+        
+        private:
+            iterator(node *n_p) { p = n_p; }
+            node *p;
+        };
     
-public:
-    slist();
-    ~slist();
+    public:
+        slist();
+        ~slist();
     
-    void push_back(const T &);
-    void sort();
+        void push_back(const T &);
+        void sort();
     
-    iterator begin() { return iterator(head->next); }
-    iterator end() { return iterator(NULL); }
+        iterator begin() { return iterator(head->next); }
+        iterator end() { return iterator(NULL); }
     
-private:
-    node *head;
-    node *tail;
-    int size = 0;
+    private:
+        node *head;
+        node *tail;
+        int size = 0;
     
 };
 
@@ -134,40 +145,35 @@ void slist<T>::push_back(const T &din) {
 template <typename T>
 void slist<T>::sort() {
     
+    // determine number of list elements and set up smart pointer array called Ap
+    //among declaring initial p for first for loop
     node *p = head -> next;
-    node *pn;
     slist<T>::iterator it;
-    vector<node*>Ap(size,NULL);
-    cout<<"size "<<size<<endl;
-    int i = 0;
-    while(p != tail){
+    vector<sptr>Ap(size,NULL);
+   //we make sure the array of pointrs point ro the nodes here
+    for(int i = 0; i<size;i ++){
         Ap[i] = p;
-        //cout<<p->data<<endl;
-        pn = p->next;
-        
-        p = pn;
-        i++;
-        cout<<"billh"<<endl;
-    }
-    Ap[size-1]=tail;
     
-    for(int i = 0; i < size;i++){
-        cout<<Ap[i]->data<<endl;
-        
+        p=p->next;
     }
-    std::sort(Ap.begin()->data,Ap.end()->data);
+    /*for(int i = 0; i<size;i ++){
+        cout<<(*Ap[i]).data<<endl;
+       // p=p->next;
+    }*/
     
-    for(int i = 0; i < size;i++){
-        cout<<Ap[i]->data<<endl;
-        
-    }
-    // determine number of list elements
-    // set up smart pointer array called Ap
     // apply std::sort(Ap.begin(), Ap.end())
+    std::sort(Ap.begin(),Ap.end());
+    
     // use sorted Ap array to relink list
+    p = head;
+    for(int i = 0; i < size; i ++){
+        p->next=Ap[i];
+        p=p->next;
+    }
+    tail = p;
+    p->next = NULL;
     
-    
-    
+    p = head;
     
 }
 
@@ -185,6 +191,11 @@ void printlist(T p1,T p2)
 
 int main(int argc, char *argv[]) {
     // copy command-line check from Quicksort.cpp
+    if(argc > 1){
+        cout<<"usage: ./sort_slist < file.txt"<<endl;
+        return 0;
+        
+    }
     
     slist<person_t> A;
     
@@ -193,7 +204,7 @@ int main(int argc, char *argv[]) {
         A.push_back(din);
     
     A.sort();
-    cout<<"end"<<endl;
+   
     
-   // printlist(A.begin(), A.end());
+    printlist(A.begin(), A.end());
 }
