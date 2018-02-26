@@ -5,7 +5,7 @@
 #include<string>
 #include<fstream>
 #include<iostream>
-
+#include<vector>
 typedef unsigned char uchar;
 extern const char ETX;
 
@@ -53,7 +53,7 @@ struct pixel {
     
 };
 
-struct RGB { int R=0; int G = 0; int B = 0; };
+struct RGB { uchar R=0; uchar G = 0; uchar B = 0; };
 
 class ppm {
 private:
