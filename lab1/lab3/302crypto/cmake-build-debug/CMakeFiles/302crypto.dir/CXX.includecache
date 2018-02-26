@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/nbranch/Documents/cosc302/3_0_2/lab1/lab3/302crypto/Crypto.cpp
+support.h
+/home/nbranch/Documents/cosc302/3_0_2/lab1/lab3/302crypto/support.h
+
+/home/nbranch/Documents/cosc302/3_0_2/lab1/lab3/302crypto/support.cpp
+support.h
+/home/nbranch/Documents/cosc302/3_0_2/lab1/lab3/302crypto/support.h
+
+/home/nbranch/Documents/cosc302/3_0_2/lab1/lab3/302crypto/support.h
+cstddef
+-
+string
+-
+fstream
+-
+iostream
+-
+
