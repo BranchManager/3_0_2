@@ -1,6 +1,6 @@
 
 using namespace std;
-
+//#include "support.cpp"
 #include "support.h"
 void set_pixel_list(ppm &img, vector<pixel> &pixels){
     pixel *pix;
@@ -12,6 +12,8 @@ void set_pixel_list(ppm &img, vector<pixel> &pixels){
                 pix->rowi=i;
                 pix->rowi=j;
                 pixels.push_back(*pix);
+
+
                 
             }
         }
@@ -20,23 +22,53 @@ void set_pixel_list(ppm &img, vector<pixel> &pixels){
 }
 void encode(ifstream &fin, ppm &img) {
     vector<pixel>pixels;
+    string message;
     char a;
-    int r;
+    int i=0,j=0,r,eight=0,rc,color=0,co=0;
     //pixel *pix;
     set_pixel_list(img,pixels);
     int total = img.get_Ncols()*img.get_Nrows();
+
     while(cin.get(a)){
-        for(int i=0; i < img.get_Nrows();i++){
-            for(int j = 0; j<get_Ncols();j++){
-            r = a >> i;
-            r = a & 0x1;
+        message.push_back(a);
+
+    }
+    message.push_back(ETX);
+
+    for(int i = 0; i < message.size();i++){
+
+        r = message[i]>>eight;
+        r = r & 0x1;
+
+        if (color == 0){
+            img[pixels[i].coli][pixels[i].rowi].R = img[pixels[i].coli][pixels[i].rowi].R & 0xFE;
+            img[pixels[i].coli][pixels[i].rowi].R |= r;
+        }else if(color == 1){
+            img[pixels[i].coli][pixels[i].rowi].G = img[pixels[i].coli][pixels[i].rowi].G & 0xFE;
+            img[pixels[i].coli][pixels[i].rowi].G |= r;
+        }else if(color == 2){
+            img[pixels[i].coli][pixels[i].rowi].B = img[pixels[i].coli][pixels[i].rowi].B & 0xFE;
+            img[pixels[i].coli][pixels[i].rowi].B |= r;
+        }
+        color++;
+        if(color >= 3){
+            color = 0;
+        }
+
+        eight++;
+        if(eight >= 8){
+            eight = 0;
+        }
+
+    }
+
                 
             
-        }
-    }
+}
+   // if()
     
   
-}
+
 
 void decode() {
 
