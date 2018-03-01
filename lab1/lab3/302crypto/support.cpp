@@ -1,59 +1,62 @@
+//Noah Branch
 using namespace std;
-//#include<cstdio>
 #include "support.h"
 
 const char ETX = 0x3;
 
 void ppm::read(ifstream &fin) {
-    //matrix<RGB>vector;
-    string P6;
-    int row,col,val,totpix;
-   // int R,G,B;
-    fin>>P6;
-    cout<<P6<<endl;
-    if(P6 != "P6"){cout<<"not P6"<<endl;}
-    fin>>col>>row;
-    cout<<col<<" "<<row<<endl;
-    totpix = col * row;
-    img.assign(row,col);
-    fin>>val;
+   
+    //This function reads in the file info
+    //and we read in the junk using the function given to us
+    //we also assign and set the rows and columns
+    int totpix;
+    fin>>type;
+    if(type != "P6"){cout<<"not P6"<<endl;}
+    fin>>coll>>roww;
+    totpix = coll * roww;
+    img.assign(roww,coll);
+    fin>>maxval;
 
 
     while (fin.get() != '\n') { /* skip */ }
-   // int nrgb = 5;         // pixels per line
-    /*int nrgb_read;        // pixels read per
-    int npixels_read = 0; // pixels read in total
-    unsigned char *rgb_ptr;       // data pointer
-    unsigned char buf[3*nrgb];    // data buffer
-    char text[80];        // text buffer*/
-    //while (1) {
     fin.read((char *)img.data(), 3*totpix);
         
 }
-//	fin.close();
 
 
-
-
-
-
-void ppm::write() {
-    cout<<"P6"<<endl;
-    cout<<"255"<<endl;
-    cout<<get_Ncols()<<" "<<get_Nrows()<<endl;
-    int count = 0;
-    for(int i = 0; i < get_Nrows();i++ ){
-        for(int j = 0; j < get_Ncols();j++){
-            cout<<int(img[i][j].R)<<" ";
-            cout<<int(img[i][j].G)<<" ";
-            cout<<int(img[i][j].B)<<" ";
-            cout<<"   ";
-            count++;
-        }
-    cout<<endl;
+void ppm::write(string &name) {
+    
+    //Write writes to a new file with a "_wmsg.ppm" extenstion
+    string s = ".ppm";
+    string newname = name.substr(0,name.find(s));
+    newname += "_wmsg.ppm";
+    ofstream newfile;
+    newfile.open(newname.c_str());
+    //we open the new file and output header information
+    if(newfile.is_open()){
+        newfile<<"P6"<<endl;
+        newfile<<get_Ncols()<<" "<<get_Nrows()<<endl;
+        newfile<<"255"<<endl;
+        int totpix = get_Nrows()*get_Ncols();
+        
+        //Then we write using the write function
+        newfile.write((char *)img.data(), 3*totpix);
+        
     }
-    cout<<count<<endl;
-    cout<<get_Nrows()*get_Ncols()<<endl;
+    newfile.close();
     
 }
-//notes
+
+//below are the random numgen functions given that we use
+void rnumgen::pdf(const vector<int> &v) {
+    F.resize(v.size());
+    partial_sum(v.begin(), v.end(), F.begin());
+    transform(F.begin(), F.end(), F.begin(),    bind2nd(divides<float>(),*(F.end()-1)));
+    
+}
+int rnumgen::rand() const {
+    const float randnorm = RAND_MAX+1.0f;
+    const float p = (float)std::rand()/randnorm;
+    return upper_bound(F.begin(), F.end(), p) - F.begin();
+    
+}//notes

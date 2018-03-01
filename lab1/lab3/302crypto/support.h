@@ -1,3 +1,4 @@
+//Noah Branch
 #ifndef __SUPPORT_H__
 #define __SUPPORT_H__
 
@@ -6,6 +7,11 @@
 #include<fstream>
 #include<iostream>
 #include<vector>
+#include<math.h>
+#include<cstdlib>
+#include<functional>
+#include<numeric>
+#include<algorithm>
 typedef unsigned char uchar;
 extern const char ETX;
 
@@ -15,12 +21,9 @@ class matrix {
 
     matrix(){
         buf = NULL;
-       // Nrows = 0;
-       // Ncols = 0;
-        
     }
     void assign(int n_rows,int n_cols){
-    //	buf = new char[size];
+    
         Nrows = n_rows;
         Ncols = n_cols;
         buf = new T [Nrows*Ncols];
@@ -28,7 +31,7 @@ class matrix {
     }
 
     ~matrix() {
-        delete [] buf;
+        delete[] buf;
     }
 
 		int get_Nrows() const { return Nrows; }
@@ -47,35 +50,58 @@ class matrix {
 };
 
 struct pixel {
-    pixel(){rowi=0;coli=0;}
+    pixel(int r, int c){rowi=r;coli=c;}
     int rowi;
     int coli;
     
 };
 
-struct RGB { uchar R=0; uchar G = 0; uchar B = 0; };
+struct RGB {
+    RGB( ){R=0;  G = 0; B = 0; }
 
+    uchar R,G,B;
+};
 class ppm {
 private:
     matrix<RGB> img;
-
+    string type;
+    int coll,roww;
+    int maxval;
+    
+    
 public:
-    ppm(){}
-    ~ppm(){}
+    
+    ppm(){
+        type = "P6";
+        coll = 0;
+        roww = 1;
+        maxval = 255;
+    }
+    
     int get_Nrows(){
-        return(img.get_Nrows());
+        return(roww);
     }
     
     int get_Ncols(){
-        return(img.get_Ncols());
+        return(coll);
         
     }
     RGB* operator[] (int i){return img[i];}
     
     void read(ifstream &a);
-    void write();
+    void write(string &a);
     
 };
 
+class rnumgen {
+    public:
+    rnumgen(int seed=0){ srand(seed); }
+    void pdf(const std::vector<int> &);
+    int rand() const;
+    
+    private:
+    std::vector<float> F;
+    
+};
 
 #endif
