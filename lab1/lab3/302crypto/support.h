@@ -26,7 +26,7 @@ class matrix {
     
         Nrows = n_rows;
         Ncols = n_cols;
-        buf = new T [Nrows*Ncols];
+        buf = ndew T [Nrows*Ncols];
 
     }
 
