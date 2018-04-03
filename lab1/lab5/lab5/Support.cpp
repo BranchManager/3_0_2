@@ -1,7 +1,3 @@
-//
-//  Support.cpp
-//  maze
-//
 //  Created by noah Branch on 3/26/18.
 //  Copyright © 2018 noah Branch. All rights reserved.
 //
@@ -10,7 +6,11 @@
 #include "Dset.h"
 
 //This function basically creates a maze
-
+void maze::randperm(vector<pair<int,int> > &v){
+    for (int i=(int)v.size()-1; i>0; --i){
+        swap(v[i], v[rand() % (i+1)]);
+    }
+}
 void maze::create_maze(int row,int col){
     r = row;
     c = col;
@@ -66,6 +66,7 @@ void maze::create_maze(int row,int col){
     }
     
 }
+//This writes out hte maze created by the program
 void maze::write_maze(){
     cout<<"MAZE"<<" "<<r<<" "<<c<<endl;
     for(int i = 0;i < r; i++){
@@ -176,9 +177,9 @@ bool maze::solve_maze(){
 bool maze::solve_maze(int a, int b){
     return acutallysolve(a,b);
 }
-
+//This writes the correct path of a maze
 void maze::write_path(){
-    cout<<"PATH "<<" "<<r<<" "<<c<<endl;
+    cout<<"PATH"<<" "<<r<<" "<<c<<endl;
     
     for(int i = 0; i < (int)path.size();i++){
         cout<<path[i]<<endl;

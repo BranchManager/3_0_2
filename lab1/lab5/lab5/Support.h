@@ -42,10 +42,10 @@ public:
     //Actually solve does the computation for both the solve mazes so I didnt have to rewrite code
     bool acutallysolve(int a,int b);
     void write_path();
-    void randperm(vector<pair<int,int> > &v){
+    void randperm(vector<pair<int,int> > &v);/*{
         for (int i=(int)v.size()-1; i>0; --i){
             swap(v[i], v[rand() % (i+1)]);
         }
-    }
+    }*/
 };
         /* Support_hpp */
