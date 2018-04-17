@@ -96,7 +96,7 @@ void maze::read_maze(){
     walls.resize(r*c,w);
     
     visited.resize(r*c,false);
-    //it reads in a block and a wall and adds the wall to that node
+    // it reads in a block and a wall and adds the wall to that node
     while(cin>>block1>>block2){
     
         walls[block1][block2] = true;
