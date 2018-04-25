@@ -1,0 +1,143 @@
+Name: Bill Ding
+Category: Full ProfessorCourse: CS2 Pointy Pointers
+
+Name: Fran Tic
+Category: Associate ProfessorCourse: CS5 Web Apples
+Course: PH2 Particle Bored
+Course: CS1 Problem Solving
+
+Name: Sandy Banks
+Category: Assistant ProfessorCourse: PH1 Perms and Waves
+Course: CS5 Web Apples
+
+Name: Terry Aki
+Category: Assistant ProfessorCourse: PH1 Perms and Waves
+Course: PH2 Particle Bored
+Course: CS1 Problem Solving
+
+Name: Amanda Lynn
+Category: Sophomore
+Course: CS3 Pear Programming 2.5Course: CS4 Reading Core Dumps 3Course: CS5 Web Apples 3
+Name: Andy Friese
+Category: Senior
+Course: CS3 Pear Programming 2
+Name: Anita Bath
+Category: Senior
+Course: CS2 Pointy Pointers 3.5Course: CS5 Web Apples 4Course: PH2 Particle Bored 3
+Name: Anna Fender
+Category: Sophomore
+Course: CS5 Web Apples 2.5
+Name: Anna Graham
+Category: Senior
+Course: CS1 Problem Solving 3Course: CS2 Pointy Pointers 3Course: PH1 Perms and Waves 4
+Name: Armand Hammer
+Category: Freshman
+Course: CS3 Pear Programming 3.5Course: CS4 Reading Core Dumps 4Course: PH1 Perms and Waves 2
+Name: Barb Dwyer
+Category: Junior
+Course: CS2 Pointy Pointers 2.5
+Name: Barry Cade
+Category: Sophomore
+Course: CS1 Problem Solving 3Course: CS3 Pear Programming 2Course: MA1 Math for Chumps 3
+Name: Bob Iznogood
+Category: Freshman
+Course: CS1 Problem Solving 3Course: CS5 Web Apples 3Course: PH1 Perms and Waves 2.5
+Name: Brighton Early
+Category: Junior
+Course: CS1 Problem Solving 3Course: CS4 Reading Core Dumps 3Course: PH1 Perms and Waves 2.5
+Name: Cara Van
+Category: Junior
+Course: CS1 Problem Solving 2Course: CS2 Pointy Pointers 3.5Course: PH1 Perms and Waves 3.5
+Name: Carrie Oakey
+Category: Sophomore
+Course: CS3 Pear Programming 2.5Course: CS4 Reading Core Dumps 2
+Name: Chriss Cross
+Category: Freshman
+Course: CS5 Web Apples 3.5Course: MA1 Math for Chumps 2Course: PH2 Particle Bored 3.5
+Name: Dick Tator
+Category: Freshman
+Course: CS2 Pointy Pointers 3.5
+Name: Duane Pipe
+Category: Junior
+Course: CS5 Web Apples 4
+Name: Edna May
+Category: Junior
+Course: CS4 Reading Core Dumps 2
+Name: Eileen Dover
+Category: Freshman
+Course: CS1 Problem Solving 2Course: CS3 Pear Programming 3Course: PH1 Perms and Waves 2.5
+Name: Ella Mentry
+Category: Freshman
+Course: CS3 Pear Programming 4Course: CS4 Reading Core Dumps 4Course: CS5 Web Apples 3.5
+Name: Emma Lusa
+Category: Senior
+Course: CS3 Pear Programming 3.5Course: CS5 Web Apples 4Course: PH2 Particle Bored 2
+Name: Holly Wood
+Category: Freshman
+Course: PH2 Particle Bored 4
+Name: Isadore Bell
+Category: Sophomore
+Course: CS3 Pear Programming 2.5Course: PH1 Perms and Waves 3
+Name: Jay Walker
+Category: Freshman
+Course: CS2 Pointy Pointers 2Course: CS5 Web Apples 3Course: MA1 Math for Chumps 2
+Name: Jean Poole
+Category: Freshman
+Course: CS4 Reading Core Dumps 3Course: CS5 Web Apples 3Course: PH2 Particle Bored 2.5
+Name: Joe King
+Category: Senior
+Course: CS1 Problem Solving 3.5
+Name: Justin Case
+Category: Sophomore
+Course: CS2 Pointy Pointers 2.5Course: CS3 Pear Programming 2Course: MA1 Math for Chumps 2.5
+Name: Kenny Dewitt
+Category: Junior
+Course: CS1 Problem Solving 2Course: CS3 Pear Programming 2.5Course: CS4 Reading Core Dumps 4
+Name: Leigh King
+Category: Sophomore
+Course: CS2 Pointy Pointers 3Course: CS3 Pear Programming 3Course: PH1 Perms and Waves 2.5
+Name: Les Moore
+Category: Senior
+Course: CS2 Pointy Pointers 4Course: CS4 Reading Core Dumps 4
+Name: Lou Tenant
+Category: Sophomore
+Course: CS4 Reading Core Dumps 4
+Name: Molly Koehl
+Category: Sophomore
+Course: CS1 Problem Solving 2Course: CS3 Pear Programming 2.5
+Name: Myles Long
+Category: Junior
+Course: CS4 Reading Core Dumps 4
+Name: Neil Down
+Category: Junior
+Course: CS1 Problem Solving 3.5Course: CS2 Pointy Pointers 3Course: CS4 Reading Core Dumps 2
+Name: Oliver Sutton
+Category: Sophomore
+Course: CS4 Reading Core Dumps 2.5Course: PH1 Perms and Waves 4Course: PH2 Particle Bored 3
+Name: Paige Turner
+Category: Senior
+Course: CS2 Pointy Pointers 2Course: MA1 Math for Chumps 3.5Course: PH2 Particle Bored 2
+Name: Robin Banks
+Category: Freshman
+Course: CS4 Reading Core Dumps 3
+Name: Rose Bush
+Category: Freshman
+Course: CS3 Pear Programming 3.5
+Name: Sarah Bellum
+Category: Freshman
+Course: CS4 Reading Core Dumps 2
+Name: Scott Free
+Category: Senior
+Course: CS2 Pointy Pointers 3.5Course: CS3 Pear Programming 3Course: MA1 Math for Chumps 4
+Name: Sue Yu
+Category: Sophomore
+Course: CS1 Problem Solving 2.5Course: CS2 Pointy Pointers 4Course: MA1 Math for Chumps 2
+Name: Sy Burnett
+Category: Junior
+Course: CS1 Problem Solving 3.5Course: CS4 Reading Core Dumps 3Course: CS5 Web Apples 2
+Name: Tina Ryhard
+Category: Sophomore
+Course: CS5 Web Apples 2Course: PH2 Particle Bored 2
+Name: Warren Peace
+Category: Senior
+Course: MA1 Math for Chumps 2
