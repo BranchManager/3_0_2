@@ -1,10 +1,12 @@
-//#include //WHAT'S NEEDED
-using namespace std;
+//Noah Branch
+//Lab7
 
 #include "Person.h"
 #include "Sptrsort.h"
+//#include"Person.cpp"
 
 int main(int argc, char *argv[]) {
+    //Make sure correct number of cmd line objects
   if (argc < 2) {
       cerr<<"BAD cmd line args"<<endl;
 	return 0;
@@ -14,8 +16,8 @@ int main(int argc, char *argv[]) {
 
   person *n_person;
   vector<person *> person_list;
-    vector<person *>student_list;
-    vector<person *>faculty_list;
+    vector<student *>student_list;
+    vector<faculty *>faculty_list;
 
  // person_enum
     person_type person_typ = UNKNOWN;
@@ -29,6 +31,7 @@ int main(int argc, char *argv[]) {
   vector<string> course;
   vector<float> gp;
     if(fin.is_open()){
+        //while read line from file
       while (getline(fin, input)) {
         line++;
 
@@ -51,8 +54,9 @@ int main(int argc, char *argv[]) {
             faculty_typ = FULL_PROF;
 
           //CODE FOR ADDING FACULTY PERSON TO DATABAS
-            n_person = new faculty(name,category,course,faculty_typ); //new student;
-            faculty_list.push_back(n_person);
+            n_person = new faculty(name,category,course,faculty_typ);
+            faculty *fac = dynamic_cast<faculty*>(n_person);
+            faculty_list.push_back(fac);
           person_list.push_back(n_person);
 
           person_typ = UNKNOWN;
@@ -76,10 +80,9 @@ int main(int argc, char *argv[]) {
             student_typ = SENIOR;
 
           //CODE FOR ADDING STUDENT PERSON TO DATABASE
-           // cout<<"before "<<name<<endl;
             n_person = new student(name,category,course,student_typ,gp);
-            //n_person->add_course(course);
-            student_list.push_back(n_person);
+            student *stu = dynamic_cast<student*>(n_person);            
+            student_list.push_back(stu);
           person_list.push_back(n_person);
 
           person_typ = UNKNOWN;
@@ -116,8 +119,11 @@ int main(int argc, char *argv[]) {
       }
     }
     fin.close();
+   
     sptrsort(person_list);
+   
     sptrsort(student_list);
+   
     sptrsort(faculty_list);
     cout<<"command: person"<<endl;
     cout<<"command: faculty"<<endl;
@@ -125,9 +131,13 @@ int main(int argc, char *argv[]) {
     cout<<"command> ";
     
     string info;
+    
+    
+    
+    // MODIFY TO INFINITE LOOP ASKING FOR PERSON,
     while(cin>>info){
         
-      // MODIFY TO INFINITE LOOP ASKING FOR PERSON,
+      
       // FACULTY OR STUDENT MODE FOR SORTING
         if(info == "faculty"){
             for (int i=0; i<(int)faculty_list.size(); i++){
@@ -141,9 +151,16 @@ int main(int argc, char *argv[]) {
         }
         if(info == "person"){
             for (int i=0; i<(int)person_list.size(); i++){
-             cout << *person_list[i] << "\n";
+                cout << *person_list[i] << "\n";
             }
         }
+         
+         cout<<"command> ";
+         
+     }
+    // RELEASE DYNAMICALLY ALLOACTED MEMORY
+    for( int i = 0 ; i < (int)person_list.size();i++){
+        delete person_list[i];
     }
-  // RELEASE DYNAMICALLY ALLOACTED MEMORY
+  
 }

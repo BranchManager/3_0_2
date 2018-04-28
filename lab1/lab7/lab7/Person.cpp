@@ -2,13 +2,15 @@
 //using namespace std;
 
 #include "Person.h"
-
+#include "Sptrsort.h"
+#include <iomanip>
 //PERSON CLASS MEMBER FUNCTION IMPLEMENTATION
-bool operator <(const person &person1, const person &person2){
-    if(person1.person_ty == person2.person_ty){
-        return person1.name < person2.name;
+bool person:: operator <(const person &person1)const{
+   // cout<<"check person"<<endl;
+    if(person_ty == person1.person_ty){
+        return name < person1.name;
     }
-    return person1.person_ty < person2.person_ty;
+    return person_ty < person1.person_ty;
 }
 
 ostream& operator<<(ostream &out, const person &p){
@@ -17,65 +19,69 @@ ostream& operator<<(ostream &out, const person &p){
    // cout<<"Category"<<p.category;
     p.print_details();
     p.print_courses();
-    return cout<<"";
+    return out;
     
 }
-//FACULTY CLASS MEMBER FUNCTION IMPLEMENTATION
+
 
 //STUDENT CLASS MEMBER FUNCTION IMPLEMENTATION
-bool operator <(const student &person1, const student &person2){
-    if(person1.student_ty == person2.student_ty){
-        return person1.name < person2.name;
+bool student::operator <(const student &person1)const{
+  //  cout<<"check student"<<endl;
+    if(student_ty == person1.student_ty){
+        
+        return name < person1.name;
     }
-    return person1.student_ty < person2.student_ty;
+    return student_ty < person1.student_ty;
 }
 student::student(string &n, string &f, vector<string> &t, student_type s, vector<float> &gp){
+    //we set everything in the student class here
     person_ty = STUDENT;
     student_ty = s;
     name = n; category = f;
     add_course(t,gp);
-   // cout<<"here "<<name;
 }
 void student::print_courses()const{
-    // cout<<endl<<"zee courses print here:: ";
     map<string,float>::const_iterator it,endit;
-    it = course.begin();
-    float avg=it->second;
-    //endit = course.end();
-    for(it;it != course.end();it++){
-        avg = (avg+it->second)/2;
-        cout<<"Course: "<<it->first<<" "<<it->second<<" "<<avg<<endl;
+    float avg=0;
+    float sum=0;
+    int i=0;
+    for(it = course.begin();it != course.end();it++,i++){
+        sum = it->second+sum;
+        avg = (sum)/(i+1);
+        cout.clear();
+        cout<<setw(12)<<right<<"Course: "<<setw(25)<<left<<it->first<<" "<<fixed<<setprecision(2)<< it->second<<" "<<avg<<endl;
+        
     }
     
 }
 void student::print_details()const{
-    cout<<"Name: "<<name<<endl;
-    cout<<"Category: "<<category<<endl;
+    cout<<right<<setw(12)<<"Name: "<<name<<endl;
+    cout<<right<<setw(12)<<"Category: "<<category<<endl;
 
 }
 
 void student::add_course(vector<string> &t, vector<float> &gp){
-    //courses = t;
-    //cout<<"sizes "<<t.size()<<endl;
-    for(int i = 0; i < t.size(); i++){
-       // courses.push_back(t[i]);
+    
+    for(int i = 0; i < (int)t.size(); i++){
         course.insert(make_pair(t[i], gp[i]));
     }
-   // for(int i = 0; i < courses.size(); i++){cout<<courses[i]<<endl;
-        
-   // }
+   
 }
-bool operator <(const faculty &person1, const faculty &person2){
-    if(person1.faculty_ty == person2.faculty_ty){
-        return person1.name < person2.name;
+
+
+
+//FACULTY CLASS MEMBER FUNCTION IMPLEMENTATION
+bool faculty::operator <(const faculty &person1)const{
+    if(faculty_ty == person1.faculty_ty){
+        return name < person1.name;
     }
-    return person1.faculty_ty < person2.faculty_ty;
+    return faculty_ty < person1.faculty_ty;
 }
 void faculty::add_course(vector<string> &t){
-    for(int i = 0; i < t.size(); i++){
-        courses.push_back(t[i]);
+    for(int i = 0; i < (int)t.size(); i++){
+        // courses.push_back(t[i]);
+        course.insert(make_pair(t[i],0));
     }
-    
 }
 
 faculty::faculty(string &n, string &f,vector<string> &t, faculty_type g){
@@ -87,13 +93,15 @@ faculty::faculty(string &n, string &f,vector<string> &t, faculty_type g){
 }
 
 void faculty::print_courses()const{
-   // cout<<"courses print here: ";
-    for(int i = 0;i < courses.size();i++){
-        
-        cout<<"Course: "<<courses[i]<<endl;
+    map<string,float>::const_iterator it,endit;
+    
+    for(it = course.begin();it != course.end();it++){
+       // avg = (avg+it->second)/2;
+        cout<<right<<setw(12)<<"Course: "<<it->first<<endl;
     }
+    
 }
 void faculty::print_details()const{
-    cout<<"Name: "<<name<<endl;
-    cout<<"Category: "<<category;
+    cout<<right<<setw(12)<<"Name: "<<name<<endl;
+    cout<<right<<setw(12)<<"Category: "<<category<<endl;
 }
